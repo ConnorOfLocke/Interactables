@@ -45,6 +45,12 @@ public class InteractableCameraInputTrigger : MonoBehaviour
                 {
                     hitInteractable.OnCameraInputTriggered(hitInfo.distance);
                 }
+
+                StateInteractable hitStateInteractable = hitInfo.collider.gameObject.GetComponent<StateInteractable>();
+                if (hitStateInteractable != null)
+                {
+                    hitStateInteractable.OnCameraInputTriggered(hitInfo.distance);
+                }
             }
         }
     }
