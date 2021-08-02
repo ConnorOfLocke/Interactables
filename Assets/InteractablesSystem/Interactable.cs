@@ -35,6 +35,14 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     [Tooltip("Set to only fire when triggered by tagged object. (Can be empty to allow all)")]
     private string triggerTag = "";
+    
+    [Header("Flip Flop")]
+    [SerializeField]
+    public bool isFlipFlop = false;
+
+    [SerializeField]
+    [Tooltip("Flip flop state to start. (False -> OFF, True -> ON)")]
+    public bool startingFlipFlopState = false;
 
 
     //Hidden stuff
@@ -42,7 +50,13 @@ public class Interactable : MonoBehaviour
     public InteractableEffect[] interactableEffects;
 
     [HideInInspector]
+    public InteractableEffect[] secondaryInteractableEffects;
+
+    [HideInInspector]
     public bool hasFired = false;
+
+    [HideInInspector]
+    public bool flipFlopState = false;
 
     [HideInInspector]
     public DateTime lastTimeFired = new DateTime(0);
@@ -57,6 +71,8 @@ public class Interactable : MonoBehaviour
                 Debug.LogWarning($"[Interactable] {gameObject.name} does not have a collider attached but has been set to fire on trigger");
             }
         }
+
+        flipFlopState = startingFlipFlopState;
     }
 
     public void OnCameraInputTriggered(float hitDistance)
@@ -114,9 +130,31 @@ public class Interactable : MonoBehaviour
 
     public void Fire()
     {
-        foreach (var effect in interactableEffects)
+        if (isFlipFlop)
         {
-            effect.Fire();
+            if (!flipFlopState) //OFF -> ON
+            {
+                foreach (var effect in interactableEffects)
+                {
+                    effect.Fire();
+                }
+            }
+            else
+            {
+                foreach (var effect in secondaryInteractableEffects)
+                {
+                    effect.Fire();
+                }
+            }
+
+            flipFlopState = !flipFlopState;
+        }
+        else
+        {
+            foreach (var effect in interactableEffects)
+            {
+                effect.Fire();
+            }
         }
 
         hasFired = true;
