@@ -8,6 +8,12 @@ public class IE_FireAudioSource : InteractableEffect
     [Tooltip("Plays audiosource on being fired")]
     private AudioSource audioSource;
 
+    public void Reset()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+    }
+
     public override void Fire()
     {
         if (audioSource != null)

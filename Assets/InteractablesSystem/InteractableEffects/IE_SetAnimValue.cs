@@ -56,6 +56,12 @@ public class IE_SetAnimValue : InteractableEffect
     [HideInInspector]
     public float floatValue;
 
+    public void Reset()
+    {
+        if (targetAnimator == null)
+            targetAnimator = GetComponent<Animator>();
+    }
+
     public override void Fire()
     {
         if (targetAnimator != null)

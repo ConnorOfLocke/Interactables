@@ -12,6 +12,12 @@ public class IE_TriggerAnim : InteractableEffect
     [Tooltip("Name of the Animator property to which we are firing")]
     private string triggerName;
 
+    public void Reset()
+    {
+        if (targetAnimator == null)
+            targetAnimator = GetComponent<Animator>();
+    }
+
     public override void Fire()
     {
         if (targetAnimator != null)

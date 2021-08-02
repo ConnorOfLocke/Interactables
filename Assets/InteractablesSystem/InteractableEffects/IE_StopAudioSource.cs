@@ -8,6 +8,12 @@ public class IE_StopAudioSource : InteractableEffect
     [Tooltip("Plays audiosource on being fired")]
     private AudioSource audioSource;
 
+    public void Reset()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+    }
+
     public override void Fire()
     {
         audioSource.Stop();
