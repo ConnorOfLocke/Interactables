@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateInteractable : MonoBehaviour
+public class StateInteractable : BaseInteractable
 {
     [SerializeField]
     [Tooltip("Seconds until this interactable can be fired again. (<=0 to fire every time)")]
@@ -57,7 +57,7 @@ public class StateInteractable : MonoBehaviour
         curState = startingState;
     }
 
-    public void OnCameraInputTriggered(float hitDistance)
+    public override void OnCameraInputTriggered(float hitDistance)
     {
         if (!CheckCanFire())
             return;
@@ -107,7 +107,7 @@ public class StateInteractable : MonoBehaviour
         return true;
     }
 
-    public void Fire()
+    public override void Fire()
     {
         StateInteractable_EffectList effectList = interactableEffects[curState];
         foreach (var effect in effectList.stateInteractableEffects)

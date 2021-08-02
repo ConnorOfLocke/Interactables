@@ -40,16 +40,10 @@ public class InteractableCameraInputTrigger : MonoBehaviour
                 hasRayCast = true;
                 lastHitPosition = hitInfo.point;
 
-                Interactable hitInteractable = hitInfo.collider.gameObject.GetComponent<Interactable>();
+                BaseInteractable hitInteractable = hitInfo.collider.gameObject.GetComponent<BaseInteractable>();
                 if (hitInteractable != null)
                 {
                     hitInteractable.OnCameraInputTriggered(hitInfo.distance);
-                }
-
-                StateInteractable hitStateInteractable = hitInfo.collider.gameObject.GetComponent<StateInteractable>();
-                if (hitStateInteractable != null)
-                {
-                    hitStateInteractable.OnCameraInputTriggered(hitInfo.distance);
                 }
             }
         }

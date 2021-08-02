@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : BaseInteractable
 {
     [Space(5)]
     [SerializeField]
@@ -75,7 +75,7 @@ public class Interactable : MonoBehaviour
         flipFlopState = startingFlipFlopState;
     }
 
-    public void OnCameraInputTriggered(float hitDistance)
+    public override void OnCameraInputTriggered(float hitDistance)
     {
         if (!CheckCanFire())
             return;
@@ -128,7 +128,7 @@ public class Interactable : MonoBehaviour
         return true;
     }
 
-    public void Fire()
+    public override void Fire()
     {
         if (isFlipFlop)
         {
