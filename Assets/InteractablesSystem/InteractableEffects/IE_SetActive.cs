@@ -6,11 +6,11 @@ public class IE_SetActive : InteractableEffect
 {
     [SerializeField]
     [Tooltip("Target Gameobject to setActive")]
-    GameObject targetObject;
+    GameObject targetObject = null;
 
     [SerializeField]
     [Tooltip("State to which we are changing")]
-    bool state;
+    bool state = false;
 
     public override void Fire()
     {

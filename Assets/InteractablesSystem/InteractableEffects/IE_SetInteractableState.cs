@@ -6,11 +6,11 @@ public class IE_SetInteractableState : InteractableEffect
 {
     [SerializeField]
     [Tooltip("State Interactable to change state on")]
-    StateInteractable stateInteractable;
+    StateInteractable stateInteractable = null;
 
     [SerializeField]
     [Tooltip("State to set it to")]
-    int newState;
+    int newState = 0;
 
     public void Reset()
     {

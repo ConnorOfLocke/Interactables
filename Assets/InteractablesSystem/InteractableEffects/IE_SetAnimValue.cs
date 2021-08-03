@@ -37,24 +37,24 @@ public class IE_SetAnimValue : InteractableEffect
 {
     [SerializeField]
     [Tooltip("Animator to set values to")]
-    private Animator targetAnimator;
+    private Animator targetAnimator = null;
 
     [SerializeField]
     [Tooltip("Name of the animator property to change")]
-    private string valueName;
+    private string valueName = "";
 
     [SerializeField]
     [Tooltip("Data Type of the animator property to change")]
-    private AnimValueType valueType;
+    private AnimValueType valueType = AnimValueType.Bool;
 
     [HideInInspector]
-    public bool boolValue;
+    public bool boolValue = false;
     
     [HideInInspector]
-    public int intValue;
+    public int intValue = 0;
 
     [HideInInspector]
-    public float floatValue;
+    public float floatValue = 0.0f;
 
     public void Reset()
     {

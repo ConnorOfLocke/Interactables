@@ -17,10 +17,10 @@ public class InteractableCameraInputTrigger : MonoBehaviour
     private bool firesOnLeftMouseInput = true;
     [SerializeField]
     [Tooltip("Set if we are listening to OnMouseButtonDown(1)")]
-    private bool firesOnRightMouseInput;
-    [SerializeField] 
+    private bool firesOnRightMouseInput = false;
+    [SerializeField]
     [Tooltip("Set if we are listening to OnMouseButtonDown(2)")]
-    private bool firesOnMiddleMouseInput;
+    private bool firesOnMiddleMouseInput = false;
 
     [Tooltip("Distance we are firing raycasts to check input")]
     [SerializeField] private float distToRayCast = 100.0f;

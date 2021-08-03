@@ -6,7 +6,7 @@ public class IE_FireOtherInteractable : InteractableEffect
 {
     [SerializeField]
     [Tooltip("Interactable to force to fire (Will happen synchronously)")]
-    BaseInteractable interactable;
+    BaseInteractable interactable = null;
 
     public override void Fire()
     {

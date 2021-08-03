@@ -6,11 +6,11 @@ public class IE_TriggerAnim : InteractableEffect
 {
     [SerializeField]
     [Tooltip("Animator to set trigger on")]
-    private Animator targetAnimator;
+    private Animator targetAnimator = null;
 
     [SerializeField]
     [Tooltip("Name of the Animator property to which we are firing")]
-    private string triggerName;
+    private string triggerName = "";
 
     public void Reset()
     {

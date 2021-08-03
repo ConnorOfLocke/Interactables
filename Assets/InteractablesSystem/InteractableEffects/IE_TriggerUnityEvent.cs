@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class IE_TriggerUnityEvent : InteractableEffect
 {
     [SerializeField]
-    private UnityEvent unityEvent;
+    private UnityEvent unityEvent = null;
 
     public override void Fire()
     {
