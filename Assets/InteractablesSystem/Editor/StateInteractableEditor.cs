@@ -85,8 +85,6 @@ public class StateInteractableEditor : Editor
         GUILayout.EndHorizontal();
         GUILayout.EndVertical();
 
-
-
         if (Application.isPlaying)
         {
             GUILayout.BeginHorizontal();
